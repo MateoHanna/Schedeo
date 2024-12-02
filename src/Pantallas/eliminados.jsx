@@ -3,6 +3,8 @@ import Sidebar from './Sidebar';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+
 const TaskItem = ({ tarea, onRestore, onDelete }) => {
   return (
     <div className="relative">
@@ -53,7 +55,7 @@ const Eliminados = () => {
   const obtenerTareasEliminadas = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:5000/obtener-tareas-eliminadas', {
+      const response = await axios.get(`${API_URL}/obtener-tareas-eliminadas`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -69,7 +71,7 @@ const Eliminados = () => {
   const restaurarTarea = async (tareaId) => {
     try {
       const token = localStorage.getItem('token');
-      await axios.post(`http://localhost:5000/restaurar-tarea/${tareaId}`, {}, {
+      await axios.post(`${API_URL}/restaurar-tarea/${tareaId}`, {}, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -87,7 +89,7 @@ const Eliminados = () => {
     if (window.confirm('¿Estás seguro de eliminar permanentemente esta tarea?')) {
       try {
         const token = localStorage.getItem('token');
-        await axios.delete(`http://localhost:5000/eliminar-permanente/${tareaId}`, {
+        await axios.delete(`${API_URL}/eliminar-permanente/${tareaId}`, {
           headers: {
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json'

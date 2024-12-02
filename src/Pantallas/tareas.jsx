@@ -3,6 +3,8 @@ import Sidebar from './Sidebar';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+
 const TaskItem = ({ task, onEdit, onDelete, onUpdate }) => {
   const [showEditForm, setShowEditForm] = useState(false);
   const [editForm, setEditForm] = useState({
@@ -23,7 +25,7 @@ const TaskItem = ({ task, onEdit, onDelete, onUpdate }) => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.put(
-        `http://localhost:5000/editar-tarea/${task.id}`,
+        `${API_URL}/editar-tarea/${task.id}`,
         editForm,
         {
           headers: {
@@ -47,7 +49,7 @@ const TaskItem = ({ task, onEdit, onDelete, onUpdate }) => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.put(
-        `http://localhost:5000/editar-tarea/${task.id}`,
+        `${API_URL}/editar-tarea/${task.id}`,
         {
           ...editForm,
           completada: !editForm.completada
@@ -195,7 +197,7 @@ const TasksPage = () => {
   const fetchTasks = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:5000/obtener-tareas', {
+      const response = await axios.get(`${API_URL}/obtener-tareas`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -234,7 +236,7 @@ const TasksPage = () => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.post(
-        'http://localhost:5000/crear-tarea',
+        `${API_URL}/crear-tarea`,
         taskForm,
         {
           headers: {
@@ -294,7 +296,7 @@ const TasksPage = () => {
       }
 
       const response = await axios.delete(
-        `http://localhost:5000/eliminar-tarea/${taskId}`,
+        `${API_URL}/eliminar-tarea/${taskId}`,
         {
           headers: {
             'Authorization': `Bearer ${token}`
@@ -323,7 +325,7 @@ const TasksPage = () => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.put(
-        `http://localhost:5000/editar-tarea/${selectedTask.id}`,
+        `${API_URL}/editar-tarea/${selectedTask.id}`,
         {
           ...taskForm,
           fecha_vencimiento: selectedTask.fecha_vencimiento

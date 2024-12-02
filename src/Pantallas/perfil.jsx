@@ -3,6 +3,8 @@ import Sidebar from './Sidebar';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+
 const ProfilePage = () => {
   const [currentSection, setCurrentSection] = useState('Perfil');
   const [userData, setUserData] = useState(null);
@@ -31,7 +33,7 @@ const ProfilePage = () => {
           return;
         }
 
-        const response = await axios.get('http://localhost:5000/obtener-info-usuario', {
+        const response = await axios.get(`${API_URL}/obtener-info-usuario`, {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -70,7 +72,7 @@ const ProfilePage = () => {
     e.preventDefault();
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.put('http://localhost:5000/editar-usuario', editForm, {
+      const response = await axios.put(`${API_URL}/editar-usuario`, editForm, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -106,7 +108,7 @@ const ProfilePage = () => {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.put('http://localhost:5000/editar-usuario', {
+      const response = await axios.put(`${API_URL}/editar-usuario`, {
         ...editForm,
         contrasena_actual: passwordForm.contrasena_actual,
         nueva_contrasena: passwordForm.nueva_contrasena
