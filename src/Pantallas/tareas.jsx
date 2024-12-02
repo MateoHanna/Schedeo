@@ -3,8 +3,11 @@ import Sidebar from './Sidebar';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
+<<<<<<< HEAD
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 
+=======
+>>>>>>> 4f81068 (aplicacion completa)
 const TaskItem = ({ task, onEdit, onDelete, onUpdate }) => {
   const [showEditForm, setShowEditForm] = useState(false);
   const [editForm, setEditForm] = useState({
@@ -25,7 +28,11 @@ const TaskItem = ({ task, onEdit, onDelete, onUpdate }) => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.put(
+<<<<<<< HEAD
         `${API_URL}/editar-tarea/${task.id}`,
+=======
+        `http://localhost:5000/editar-tarea/${task.id}`,
+>>>>>>> 4f81068 (aplicacion completa)
         editForm,
         {
           headers: {
@@ -49,7 +56,11 @@ const TaskItem = ({ task, onEdit, onDelete, onUpdate }) => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.put(
+<<<<<<< HEAD
         `${API_URL}/editar-tarea/${task.id}`,
+=======
+        `http://localhost:5000/editar-tarea/${task.id}`,
+>>>>>>> 4f81068 (aplicacion completa)
         {
           ...editForm,
           completada: !editForm.completada
@@ -197,7 +208,11 @@ const TasksPage = () => {
   const fetchTasks = async () => {
     try {
       const token = localStorage.getItem('token');
+<<<<<<< HEAD
       const response = await axios.get(`${API_URL}/obtener-tareas`, {
+=======
+      const response = await axios.get('http://localhost:5000/obtener-tareas', {
+>>>>>>> 4f81068 (aplicacion completa)
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -236,7 +251,11 @@ const TasksPage = () => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.post(
+<<<<<<< HEAD
         `${API_URL}/crear-tarea`,
+=======
+        'http://localhost:5000/crear-tarea',
+>>>>>>> 4f81068 (aplicacion completa)
         taskForm,
         {
           headers: {
@@ -296,7 +315,11 @@ const TasksPage = () => {
       }
 
       const response = await axios.delete(
+<<<<<<< HEAD
         `${API_URL}/eliminar-tarea/${taskId}`,
+=======
+        `http://localhost:5000/eliminar-tarea/${taskId}`,
+>>>>>>> 4f81068 (aplicacion completa)
         {
           headers: {
             'Authorization': `Bearer ${token}`
@@ -325,7 +348,11 @@ const TasksPage = () => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.put(
+<<<<<<< HEAD
         `${API_URL}/editar-tarea/${selectedTask.id}`,
+=======
+        `http://localhost:5000/editar-tarea/${selectedTask.id}`,
+>>>>>>> 4f81068 (aplicacion completa)
         {
           ...taskForm,
           fecha_vencimiento: selectedTask.fecha_vencimiento

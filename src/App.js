@@ -9,8 +9,11 @@ import './App.css';
 import axios from 'axios';
 import { Toaster } from 'react-hot-toast';
 
+<<<<<<< HEAD
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 
+=======
+>>>>>>> 4f81068 (aplicacion completa)
 // Componente de protección de rutas
 const ProtectedRoute = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = React.useState(null);
@@ -26,7 +29,11 @@ const ProtectedRoute = ({ children }) => {
                     return;
                 }
 
+<<<<<<< HEAD
                 const response = await axios.get(`${API_URL}/session`, {
+=======
+                const response = await axios.get('http://localhost:5000/session', {
+>>>>>>> 4f81068 (aplicacion completa)
                     headers: {
                         'Authorization': `Bearer ${token}`,
                         'Content-Type': 'application/json'
@@ -60,7 +67,11 @@ const ProtectedRoute = ({ children }) => {
 
 function App() {
   return (
+<<<<<<< HEAD
     <Router basename="/Schedeo">
+=======
+    <Router>
+>>>>>>> 4f81068 (aplicacion completa)
       <div className="App">
         <Toaster position="top-right" />
         <Routes>

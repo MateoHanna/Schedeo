@@ -3,8 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 
+<<<<<<< HEAD
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 
+=======
+>>>>>>> 4f81068 (aplicacion completa)
 const InicioSesion = () => {
   const [formData, setFormData] = useState({ usuario: '', contrasena: '' });
   const [error, setError] = useState('');
@@ -17,7 +20,11 @@ const InicioSesion = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+<<<<<<< HEAD
       const response = await axios.post(`${API_URL}/login`, {
+=======
+      const response = await axios.post('http://localhost:5000/login', {
+>>>>>>> 4f81068 (aplicacion completa)
         usuario: formData.usuario,
         contrasena: formData.contrasena
       }, {
