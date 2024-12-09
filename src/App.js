@@ -8,7 +8,6 @@ import Eliminados from './Pantallas/eliminados';
 import './App.css';
 import axios from 'axios';
 import { Toaster } from 'react-hot-toast';
-import { endpoints } from './config/api';
 
 const ProtectedRoute = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = React.useState(null);
@@ -24,7 +23,7 @@ const ProtectedRoute = ({ children }) => {
                     return;
                 }
 
-                const response = await axios.get(endpoints.session, {
+                const response = await axios.get('http://localhost:5000/session', {
                     headers: {
                         'Authorization': `Bearer ${token}`,
                         'Content-Type': 'application/json'
@@ -58,7 +57,7 @@ const ProtectedRoute = ({ children }) => {
 
 function App() {
   return (
-    <Router basename="/Schedeo">
+    <Router basename="/">
       <div className="App">
         <Toaster position="top-right" />
         <Routes>

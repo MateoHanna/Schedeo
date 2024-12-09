@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Schedeo/static/css/main.5cab4bc6.css",
+    "main.js": "/Schedeo/static/js/main.5ec13a58.js",
+    "static/js/453.5082fa08.chunk.js": "/Schedeo/static/js/453.5082fa08.chunk.js",
+    "index.html": "/Schedeo/index.html",
+    "main.5cab4bc6.css.map": "/Schedeo/static/css/main.5cab4bc6.css.map",
+    "main.5ec13a58.js.map": "/Schedeo/static/js/main.5ec13a58.js.map",
+    "453.5082fa08.chunk.js.map": "/Schedeo/static/js/453.5082fa08.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5cab4bc6.css",
+    "static/js/main.5ec13a58.js"
+  ]
+}
