@@ -415,13 +415,19 @@ const TasksPage = () => {
               
               <div className="space-y-2">
                 {dayTasks.map(task => (
-                  <TaskItem 
-                    key={task.id} 
-                    task={task} 
-                    onEdit={handleEditTask} 
-                    onDelete={handleDeleteTask}
-                    onUpdate={handleUpdateTask}
-                  />
+                  <div
+                    key={task.id}
+                    className={`${
+                      isToday ? 'text-black' : 'text-gray-700'
+                    }`}
+                  >
+                    <TaskItem 
+                      task={task} 
+                      onEdit={handleEditTask} 
+                      onDelete={handleDeleteTask}
+                      onUpdate={handleUpdateTask}
+                    />
+                  </div>
                 ))}
               </div>
 
@@ -441,6 +447,7 @@ const TasksPage = () => {
       </div>
     );
   };
+
 
   const renderMonthlyCalendar = () => {
     const firstDayOfMonth = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), 1);
